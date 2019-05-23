@@ -5,41 +5,40 @@ package com.weather.app.date
  * created on: 2019/5/19 16:22
  * description:
  */
-data class ForecastResult(val city: City, val list: List<Forecast>)
+data class ForecastResult(val city: City, val cod: String, val message: Float, val cnt: Int, val list: List<Forecast>)
 
-data class City(val id: Long, val name: String, val coord: Coordinates, val country: String)
+data class City(
+    val id: Long,
+    val name: String,
+    val coord: Coordinates,
+    val country: String,
+    val population: Int,
+    val timezone: Int
+)
 
-data class Coordinates(val lat: Float, val lon: Float)
+data class Coordinates(val lon: Float, val lat: Float)
 
 data class Forecast(
     val dt: Long,
-    val main: Temperature,
+    val temp: Temperature,
+    val pressure: Float,
+    val humidity: Int,
     val weather: List<Weather>,
-    val clouds: Clouds,
-    val wind: Wind,
-    val snow: Snow,
-    val sys: Sys,
-    val dt_txt: String
+    val speed: Float,
+    val deg: Int,
+    val clouds: Int
+
 )
 
 data class Temperature(
-    val temp: Float,
-    val temp_min: Float,
-    val temp_max: Float,
-    val pressure: Float,
-    val swa_level: Float,
-    val grnd_level: Float,
-    val humidity: Int,
-    val temp_kf: Float
+    val day: Float,
+    val min: Float,
+    val max: Float,
+    val night: Float,
+    val eve: Float,
+    val morn: Float
 )
 
 data class Weather(val id: Int, val main: String, val description: String, val icon: String)
 
-data class Clouds(val all: Int)
-
-data class Wind(val speed: Float, val deg: Float)
-
-data class Snow(val h3: Float)
-
-data class Sys(val pod: String)
 

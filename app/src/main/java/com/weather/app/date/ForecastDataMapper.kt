@@ -29,8 +29,8 @@ public class ForecastDataMapper {
         return ModelForecast(
             convertDate(forecast.dt),
             forecast.weather[0].description,
-            forecast.main.temp_max.toInt(),
-            forecast.main.temp_min.toInt()
+            forecast.temp.max.toInt(),
+            forecast.temp.min.toInt()
         )
     }
 
